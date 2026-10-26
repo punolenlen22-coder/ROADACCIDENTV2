@@ -109,6 +109,37 @@ def show_header():
 
 
 # ============================================================
+# CENTERED TOP NAVIGATION
+# ============================================================
+
+def show_navigation():
+    nav_options = [
+        "1. Upload and Cleaning",
+        "2. Statistics and EDA",
+        "3. Classification and Prediction",
+        "4. Forecasting and Downloads",
+    ]
+
+    if "analysis_page" not in st.session_state:
+        st.session_state["analysis_page"] = nav_options[0]
+
+    page = st.radio(
+        "Dashboard Navigation",
+        options=nav_options,
+        horizontal=True,
+        key="analysis_page",
+        label_visibility="collapsed",
+    )
+
+    st.markdown(
+        '<div class="navigation-divider"></div>',
+        unsafe_allow_html=True,
+    )
+
+    return page
+
+
+# ============================================================
 # TABLE DISPLAY AND CSV DOWNLOAD
 # ============================================================
 
@@ -334,14 +365,17 @@ def prediction_form(bundle):
 # ============================================================
 
 def main():
-    # Load CSS after page configuration
+    # Load CSS before rendering dashboard components
     load_css()
 
-    # Display the dashboard header
+    # Display dashboard header
     show_header()
 
+    # Navigation now appears below the header in the MAIN PAGE
+    page = show_navigation()
+
     # --------------------------------------------------------
-    # SIDEBAR BRANDING
+    # SIDEBAR BRANDING AND DATASET SETTINGS
     # --------------------------------------------------------
 
     st.sidebar.markdown(
@@ -394,20 +428,6 @@ def main():
         "Assume complete recording calendar",
         True,
         key="calendar_coverage",
-    )
-
-    st.sidebar.markdown("---")
-    st.sidebar.markdown("### Navigation")
-
-    page = st.sidebar.radio(
-        "Choose an analysis page",
-        [
-            "1. Upload and Cleaning",
-            "2. Statistics and EDA",
-            "3. Classification and Prediction",
-            "4. Forecasting and Downloads",
-        ],
-        key="analysis_page",
     )
 
     st.sidebar.markdown("---")
