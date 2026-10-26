@@ -399,16 +399,16 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown("### Navigation")
 
-    page = st.sidebar.radio(
-        "Choose an analysis page",
-        [
-            "1. Upload and Cleaning",
-            "2. Statistics and EDA",
-            "3. Classification and Prediction",
-            "4. Forecasting and Downloads",
-        ],
-        key="analysis_page",
-    )
+   page = st.sidebar.radio(
+    "NAVIGATION",
+    [
+        "Upload and Cleaning",
+        "Statistics and EDA",
+        "Classification and Prediction",
+        "Forecasting and Downloads",
+    ],
+    label_visibility="visible",
+)
 
     st.sidebar.markdown("---")
     st.sidebar.caption(
