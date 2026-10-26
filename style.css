@@ -144,55 +144,82 @@ section[data-testid="stSidebar"] hr {
     border-color: var(--purple-200) !important;
 }
 
-
+```css
 /* =========================================================
-   SIDEBAR NAVIGATION
+   SIDEBAR NAVIGATION - BUTTON STYLE
    ========================================================= */
 
+/* Navigation container */
 section[data-testid="stSidebar"]
 div[role="radiogroup"] {
-    gap: 6px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
 }
 
-
-/* Navigation item */
-
+/* Each navigation button */
 section[data-testid="stSidebar"]
 div[role="radiogroup"] label {
-    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: 1px solid #e2d9f3 !important;
+    border-radius: 12px !important;
 
-    border: 1px solid var(--purple-100) !important;
+    padding: 12px 15px !important;
+    margin: 0 !important;
 
-    border-radius: 10px !important;
+    width: 100% !important;
+    cursor: pointer !important;
 
-    padding: 10px 12px !important;
-
-    margin-bottom: 5px !important;
-
-    transition: 0.2s ease !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 5px rgba(50, 30, 80, 0.04) !important;
 }
 
-
-/* Navigation hover */
-
+/* Navigation hover effect */
 section[data-testid="stSidebar"]
 div[role="radiogroup"] label:hover {
-    background-color: var(--purple-100) !important;
-
-    border-color: var(--purple-300) !important;
-
-    transform: translateX(3px);
+    background: #f3edff !important;
+    border-color: #a78bfa !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 4px 10px rgba(91, 33, 182, 0.10) !important;
 }
-
 
 /* Navigation text */
-
 section[data-testid="stSidebar"]
 div[role="radiogroup"] label p {
-    color: var(--purple-800) !important;
-
+    color: #4c1d95 !important;
     font-weight: 600 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
 }
+
+/* Selected navigation button */
+section[data-testid="stSidebar"]
+div[role="radiogroup"] label:has(input:checked) {
+    background: #6d28d9 !important;
+    border-color: #6d28d9 !important;
+    box-shadow: 0 4px 10px rgba(109, 40, 217, 0.20) !important;
+}
+
+/* Selected navigation text */
+section[data-testid="stSidebar"]
+div[role="radiogroup"] label:has(input:checked) p {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Selected button hover */
+section[data-testid="stSidebar"]
+div[role="radiogroup"] label:has(input:checked):hover {
+    background: #5b21b6 !important;
+    border-color: #5b21b6 !important;
+}
+
+/* Hide radio circles */
+section[data-testid="stSidebar"]
+div[role="radiogroup"] label > div:first-child {
+    display: none !important;
+}
+```
 
 
 /* =========================================================
